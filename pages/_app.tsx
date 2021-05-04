@@ -3,7 +3,7 @@ import '../styles/globals.css'
 import {createClient, Provider} from 'urql';
 
 const client = createClient({
-    url: 'http://localhost:3000/graphql',
+    url: 'https://api.spacex.land/graphql/',
 });
 
 function MyApp({Component, pageProps}) {
