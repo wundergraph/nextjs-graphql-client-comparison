@@ -1,7 +1,17 @@
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import {createClient, Provider} from 'urql';
+
+const client = createClient({
+    url: 'http://localhost:3000/graphql',
+});
+
+function MyApp({Component, pageProps}) {
+    return (
+        <Provider value={client}>
+            <Component {...pageProps} />
+        </Provider>
+    )
 }
 
 export default MyApp
