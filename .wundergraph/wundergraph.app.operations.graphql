@@ -1,0 +1,8 @@
+query Dragons {
+    dragons {
+        id
+        name
+        active
+        crew_capacity
+    }
+}
