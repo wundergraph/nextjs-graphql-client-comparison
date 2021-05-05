@@ -4,16 +4,16 @@ import styles from '../styles/Home.module.css'
 import {gql, request} from 'graphql-request'
 import {useEffect, useState} from "react";
 
-const query = gql`
-    {
-        Movie(title: "Inception") {
-            releaseDate
-            actors {
-                name
-            }
+const DragonsQuery = gql`
+    query Dragons {
+        dragons {
+            id
+            name
+            active
+            crew_capacity
         }
     }
-`
+`;
 
 export default function Home() {
     const [data,setData] = useState();
