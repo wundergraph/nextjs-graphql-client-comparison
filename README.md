@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# NextJS GraphQL Client comparison
 
-First, run the development server:
+This is a comparison of different GraphQL clients for NextJS.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Clients used:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Apollo
+- graphql-query
+- urql
+- WunderGraph
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+For each client, there's a branch so you can try out all the clients yourself.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To analyze the bundle size, run `yarn build`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Results
 
-## Learn More
+Client | gzip | difference | Time to Interactive | Largest Contentful Paint
+--- | --- | --- | --- | ---
+NextJS | 102,99kb | - | 1.8s | 1,9s
+Apollo | 146,28kb | 43,29kb | 2,3s | 2,8s
+graphql-request | 110,62kb | 7,63kb | 2,1s | 2,6s
+urql | 119,94kb | 16,95kb | 2,2s | 2,4s
+**WunderGraph** | **105,31kb** | **2,3kb** | **1,9s** | **2,1s**
 
-To learn more about Next.js, take a look at the following resources:
+Time to Interactive and Largest Contentful Paint was measured using Chrome Lighthouse test.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## It's more than just numbers
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+It's not just about the raw numbers.
+There's a lot more to be said than just file size.
 
-## Deploy on Vercel
+[Please read the accompanying Blog Post](http://wundergraph.com/blog/the_most_powerful_graphql_client_for_the_web_in_just_2kb) to get the full picture.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Adding more clients
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you want to add another client to the comparison,
+please open a PR that adds a new branch.
